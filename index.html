@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRL2026 待办事项应用</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 待办事项应用</h1>
+            <p class="subtitle">管理你的日常任务</p>
+        </header>
+
+        <!-- 统计信息 -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">总任务</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">已完成</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">完成率</span>
+                <span class="stat-value" id="progressRate">0%</span>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                placeholder="输入新任务..." 
+                class="todo-input"
+            >
+            <select id="categorySelect" class="category-select">
+                <option value="其他">其他</option>
+                <option value="工作">工作</option>
+                <option value="生活">生活</option>
+                <option value="学习">学习</option>
+            </select>
+            <select id="prioritySelect" class="priority-select">
+                <option value="低">低</option>
+                <option value="中">中</option>
+                <option value="高">高</option>
+            </select>
+            <button id="addBtn" class="add-btn">添加任务</button>
+        </div>
+
+        <!-- 过滤和搜索 -->
+        <div class="filter-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 搜索任务..." 
+                class="search-input"
+            >
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="active">未完成</button>
+                <button class="filter-btn" data-filter="completed">已完成</button>
+            </div>
+        </div>
+
+        <!-- 任务列表 -->
+        <div class="todo-list" id="todoList">
+            <!-- 动态生成的任务项 -->
+        </div>
+
+        <!-- 空状态 -->
+        <div class="empty-state" id="emptyState">
+            <p>📭 暂无任务，开始添加一个吧！</p>
+        </div>
+
+        <!-- 清空已完成 -->
+        <div class="action-buttons">
+            <button id="clearCompleted" class="clear-btn">清空已完成的任务</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
